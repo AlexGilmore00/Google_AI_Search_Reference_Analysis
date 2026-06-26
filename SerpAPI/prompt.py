@@ -1,4 +1,4 @@
-from Prompting.api_key_loader import API_KEY
+from SerpAPI.api_key_loader import API_KEY
 
 class Prompt:
     def __init__(self, query: str, location: str) -> None:
