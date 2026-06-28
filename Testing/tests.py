@@ -3,6 +3,7 @@ import requests
 from SerpAPI.api_key_loader import API_KEY
 from SerpAPI.prompt import Prompt
 from SerpAPI import prompter
+from SerpAPI import locations
 
 
 def test_connection() -> int:
@@ -12,8 +13,6 @@ def test_connection() -> int:
 
 
 def test_prompt() -> None:
-    prompt = Prompt("test", "What are some good holidays near me?", 
-                    "London Gatwick Airport,England,United Kingdom")
-    
+    prompt = Prompt("test", "What are some good holidays near me?", locations.LONDON)
     refs = prompter.retrieve_ai_overview_references(prompt, verbose_doc=True)
     print(refs)
