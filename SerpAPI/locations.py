@@ -15,3 +15,4 @@ NEWCASTLE = "Newcastle upon Tyne,England,United Kingdom"
 # scottland
 EDINBURGH = "Edinburgh,Scotland,United Kingdom"
 INVERNESS = "Inverness,Scotland,United Kingdom"
+GLASGOW = "Glasgow,Scotland,United Kingdom"
