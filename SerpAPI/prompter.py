@@ -24,7 +24,7 @@ def get_remaining_searches() -> int:
 def retrieve_ai_overview_references(prompt: Prompt, verbose_doc: bool = True) -> list[dict] | None:
     c_before = get_remaining_searches()
 
-    print(f"[prompt log] sending query: {prompt.params["q"]}\nfrom: {prompt.params["location"]}")
+    print(f"[prompt log] sending query: {prompt.params['q']}\nfrom: {prompt.params["location"]}")
     results = client.search(prompt.params)
 
     ai_overview = results.get("ai_overview")
@@ -41,10 +41,10 @@ def retrieve_ai_overview_references(prompt: Prompt, verbose_doc: bool = True) ->
     if verbose_doc:
         # save whole ai overview section as json
         pathlib.Path("SerpAPI/Verbose_Output").mkdir(exist_ok=True)
-        filename = f"{prompt.id}__{datetime.datetime.now():%Y%m%d_%H%M%S}"
-        filepath = pathlib.Path("SerpAPIVerbose_Output") / filename.replace(" ", "_")
+        filename = f"{prompt.id}__{datetime.datetime.now():%Y%m%d_%H%M%S}.json"
+        filepath = pathlib.Path("SerpAPI/Verbose_Output") / filename.replace(" ", "_")
         filepath.write_text(json.dumps(ai_overview, indent=2))
     
     c_after = get_remaining_searches()
-    print(f"[credit log] {c_after - c_before} credits used this query\n{c_after} credits left")
+    print(f"[credit log] {c_before - c_after} credits used this query\n{c_after} credits left")
     return ai_overview.get("references", [])
