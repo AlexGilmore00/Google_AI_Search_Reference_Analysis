@@ -1,0 +1,3 @@
+**/.venv/
+*.env
+**/SerpAPI/Verbose_Output/
