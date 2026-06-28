@@ -16,3 +16,6 @@ NEWCASTLE = "Newcastle upon Tyne,England,United Kingdom"
 EDINBURGH = "Edinburgh,Scotland,United Kingdom"
 INVERNESS = "Inverness,Scotland,United Kingdom"
 GLASGOW = "Glasgow,Scotland,United Kingdom"
+
+# list of all locations
+LOCATIONS = [LONDON, BRISTOL, CLEETHORPES, MANCHESTER, YORK, NEWCASTLE, EDINBURGH, INVERNESS, GLASGOW]
