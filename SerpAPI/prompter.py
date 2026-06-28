@@ -1,4 +1,6 @@
 import pathlib
+import datetime
+import json
 import requests
 import serpapi
 
@@ -18,7 +20,8 @@ def get_remaining_searches() -> int:
 # returns a dict containing the whole ai overview for a prompt if present
 # if not present, returns None
 # if couldnt find sources, returns empty list
-def retrieve_ai_overview_references(prompt: Prompt) -> list[dict] | None:
+# verbose_doc saves full ai overview as json to disc
+def retrieve_ai_overview_references(prompt: Prompt, verbose_doc: bool = True) -> list[dict] | None:
     c_before = get_remaining_searches()
 
     print(f"[prompt log] sending query: {prompt.params["q"]}\nfrom: {prompt.params["location"]}")
@@ -34,6 +37,13 @@ def retrieve_ai_overview_references(prompt: Prompt) -> list[dict] | None:
             "engine": "google_ai_overview",
             "page_token": ai_overview["page_token"]
         }).get("ai_overview", {})
+
+    if verbose_doc:
+        # save whole ai overview section as json
+        pathlib.Path("SerpAPI/Verbose_Output").mkdir(exist_ok=True)
+        filename = f"{prompt.id}__{datetime.datetime.now():%Y%m%d_%H%M%S}"
+        filepath = pathlib.Path("SerpAPIVerbose_Output") / filename.replace(" ", "_")
+        filepath.write_text(json.dumps(ai_overview, indent=2))
     
     c_after = get_remaining_searches()
     print(f"[credit log] {c_after - c_before} credits used this query\n{c_after} credits left")
