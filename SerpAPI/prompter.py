@@ -48,7 +48,7 @@ def retrieve_ai_overview_references(prompt: Prompt, verbose_doc: bool = True) ->
         # save whole ai overview section as json
         pathlib.Path("SerpAPI/Verbose_Output").mkdir(exist_ok=True)
         filename = f"{prompt.id}__{datetime.datetime.now():%Y%m%d_%H%M%S}.json"
-        filepath = pathlib.Path("SerpAPI/Verbose_Output") / filename.replace(" ", "_")
+        filepath = pathlib.Path("SerpAPI/Verbose_Output") / filename.replace(" ", "_").replace(":", "-")
         filepath.write_text(json.dumps(ai_overview, indent=2))
     
     c_after = get_remaining_searches()
