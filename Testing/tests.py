@@ -6,6 +6,7 @@ from SerpAPI import prompter
 from SerpAPI import locations
 from Project.gather_data import generate_prompt_id
 from Project.prompt_list import PROMPTS
+from Project.structure_data import get_unique_domains
 
 
 def test_connection() -> int:
@@ -20,8 +21,13 @@ def test_prompt() -> None:
     print(refs)
 
 
-def test_prompt_id_generation():
+def test_prompt_id_generation() -> None:
     partial_id = list(PROMPTS.keys())[0]
     for location in locations.LOCATIONS:
         full_id = generate_prompt_id(partial_id, location)
         print(f"{partial_id} -> {full_id}")
+
+
+def test_unique_domains() -> None:
+    doms = get_unique_domains()
+    print(doms)
