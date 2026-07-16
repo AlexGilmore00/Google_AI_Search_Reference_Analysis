@@ -1,0 +1,5 @@
+serpapi
+python-dotenv
+requests
+pandas
+urllib3
