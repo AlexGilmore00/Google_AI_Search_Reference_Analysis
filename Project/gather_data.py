@@ -15,7 +15,7 @@ FIELDNAMES = ["prompt_id", "position", "domain", "title", "full_link", "full_que
 # from there, it retrieves all links cited in the AIs response where applicable and writes it 
 # to a specified csv file.
 # queries with no AI response of responses with no retrievable links are skipped and not written to the csv
-def gather_data(output_path: str = "Project/Data/raw_data.csv") -> None:
+def gather_data(output_path: str = "Project/Data/raw_data.csv", verbose_doc: bool = True) -> None:
     if prompter.get_remaining_searches() < len(PROMPTS) * len(LOCATIONS) * 2:
         print("[data log][WARNING] insufficient remaining searches to gather all requested data")
         return None
@@ -32,7 +32,7 @@ def gather_data(output_path: str = "Project/Data/raw_data.csv") -> None:
             for location in LOCATIONS:
                 prompt_id = generate_prompt_id(partial_id, location)
                 prompt = Prompt(prompt_id, query, location)
-                references = prompter.retrieve_ai_overview_references(prompt, verbose_doc=True)
+                references = prompter.retrieve_ai_overview_references(prompt, verbose_doc)
 
                 if not references:
                     print(f"[prompt log][FAILURE] failed to find references for prompt '{prompt_id}', " \
