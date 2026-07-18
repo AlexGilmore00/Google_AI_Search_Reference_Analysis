@@ -50,7 +50,9 @@ It then creates a running tally for each group tallying how many times each uniq
 - `about_england` (this shows data about prompts asking about holidays in england)
 - `about_local` (this shows data about prompts asking about holidays local to where the prompt was sent from)
 - `from_<location>` (these show data about prompts sent from \<location\>)
+
 After that, the results will be outputted to the inputted file in csv format in this style
+
 |group_id|\[domain1\]|\[domain2\]|\[domain3\]|...|
 |--------:|--------:|--------:|--------:|--------:|
 |all_groups|\[# of refs\]|\[# of refs\]|\[# of refs\]|...|
