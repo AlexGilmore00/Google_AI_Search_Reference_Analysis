@@ -10,7 +10,7 @@ Firstly and most importantly, you must create a `.env` file in the route directo
 
 To get an API key, you must create an account at [serpapi.com](https://serpapi.com/) Then navigate to your profile page. This program is made to work with the SerpAPI free subscription though can be upscaled to work with higher tier subscriptions
 
-From there, open the `main.py` file and run `tests.test_connection()` to test your API key is working. If the call is succesfu;, it will print your remaining credits
+From there, open the `main.py` file and run `tests.test_connection()` to test your API key is working. If the call is succesfu, it will print your remaining credits
 
 ### Generating the data
 To generate the data, navigate to the `main.py` file and run `gather_data.gather_data()`. This fucntion also takes two parameters:
