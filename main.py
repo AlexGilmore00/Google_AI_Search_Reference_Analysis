@@ -12,9 +12,11 @@ def main():
     # accompanied by a tally count for every domain referenced within that group
     # structure_data.group_by_prompt()
 
-    # run this after running structure_data(). This will output the ref counts for all domains
+    # run these after running structure_data(). The first will output the ref counts for all domains
     # references across all prompts sorted in alphabetical order by domian
+    # The second will output the cumulative references of all domains within a given semantic group
     # analysis.print_domains_and_refcounts()
+    analysis.print_domain_groupings_refcounts()
 
 
 if __name__ == "__main__":
