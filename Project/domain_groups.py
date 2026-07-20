@@ -7,3 +7,6 @@ TOP_UK_THIRDPARTY_BOOKERS = ["haystravel.co.uk", "hoseasons.co.uk", "sykescottag
                              "booking.com", "airbnb.co.uk", "cottages.com", "cottages-and-castles.co.uk",
                              "expedia.co.uk", "holidaycottages.co.uk", "lastminute.com", "onthebeach.co.uk",
                              "tripadvisor.co.uk"]
+
+SEMANTIC_GROUPINGS = {"social_media_and_forums": SOCIALMEDIA_FORUM,
+                      "top_thirdparty_bookers": TOP_UK_THIRDPARTY_BOOKERS}
