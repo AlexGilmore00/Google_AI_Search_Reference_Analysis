@@ -13,7 +13,7 @@ def main():
     # structure_data.group_by_prompt()
 
     # run this after running structure_data(). This will output the ref counts for all domains
-    # references across all prompts
+    # references across all prompts sorted in alphabetical order by domian
     # analysis.print_domains_and_refcounts()
 
 

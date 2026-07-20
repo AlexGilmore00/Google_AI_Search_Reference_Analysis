@@ -10,7 +10,8 @@ def print_domains_and_refcounts(grouped_data_file: str = "Project/Data/grouped_b
                 all_group = row
                 all_group.pop("group_id")
                 break
-
-    for domain, count in all_group.items():
+    
+    all_group_sorted = {key: value for key, value in sorted(all_group.items())}
+    for domain, count in all_group_sorted.items():
         icount = int(count)
         print(f"{domain}: {icount}")
